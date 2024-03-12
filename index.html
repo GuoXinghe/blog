@@ -352,7 +352,7 @@
                                         <div class="col-lg-12">
                                             <!-- title -->
                                             <h5 class="trm-title-with-divider">
-                                                Newest Publications
+                                                最近发布
                                                 <span data-number="01"></span>
                                             </h5>
                                         </div>
@@ -436,34 +436,42 @@
                                     <!-- footer -->
                                     <footer class="trm-scroll-animation">
 
-
-
-
-
-
                                         <div class="trm-footer-item">
-                                            <div>
                                                 <span>© 2019- 2024</span>
-                                                <span class="footer-separator" data-separator=" · "> ::before </span>
-                                                <a href="https://github.com/GuoXinghe" target="_blank" rel="noopener">郭
-                                                    星河</a><br />
+                                                <span class="footer-separator" data-separator=" · "></span>
+                                                <a href="https://github.com/GuoXinghe" target="_blank" rel="noopener">郭 星河</a>
                                                 </span>
-                                            </div>
-                                            <div>
-                                                <span>
-                                                    Powered by <a href="https://github.com/GuoXinghe" target="_blank"
-                                                        rel="noopener">郭星河</a> v1.0.1
-                                                </span>
-                                                <span class="footer-separator" data-separator=" | "></span>
-                                                <span>
-                                                    Theme -
-                                                    <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async'
-                                                        target='_blank'>Async</a>
-                                                    v2.1.0-beta.2
-                                                </span>
-                                            </div>
                                         </div>
 
+                                        <div class="trm-footer-item">
+                                                <span>
+                                                    Powered by <a href="https://github.com/GuoXinghe" target="_blank"
+                                                        rel="noopener">郭 星河</a> v1.0.1
+                                                </span>
+                                        </div>
+
+                                        <div class="trm-footer-item">
+
+                                            <script>
+                                                // 获取当前时间
+                                                var currentDate = new Date();
+                                        
+                                                // 设置去年某一时间，这里假设为2023年3月12日
+                                                var lastYearTime = new Date('2024-03-11');
+                                        
+                                                // 计算时间差
+                                                var timeDifference = currentDate.getTime() - lastYearTime.getTime();
+                                        
+                                                // 转换为天数
+                                                var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                                        
+                                                // 显示站点运行时间
+                                                document.getElementById('runtime').innerText = '博客已萌萌哒运行：' + <span class="trm-accent-color"/> + daysDifference + ' 天';
+                                            </script>
+                                        </div>
+
+                                        
+                                        
 
 
                                     </footer>
