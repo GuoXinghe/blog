@@ -486,22 +486,6 @@
                                             <br/>
                                             <p id="blogRunningTime"></p>
 
-                                            <script>
-                                                // 获取当前时间
-                                                var currentDate = new Date();
-
-                                                // 创建博客的时间 2024-03-11
-                                                var lastYearTime = new Date('2024-03-11');
-
-                                                // 计算时间差
-                                                var timeDifference = currentDate.getTime() - lastYearTime.getTime();
-
-                                                // 转换为天数
-                                                var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-                                                // 显示站点运行时间
-                                                document.getElementById('blogRunningTime').innerText = '博客你好的已萌萌哒运行：' + <span color="#afb42b">daysDifference</span> + ' 天';
-                                            </script>
                                         </div>
 
 
@@ -581,5 +565,22 @@
 
     <script id="async-script" src="/js/main.js?v=2.1.0-beta.2"></script>
 </body>
+
+<script>
+    // 获取当前时间
+    var currentDate = new Date();
+
+    // 创建博客的时间 2024-03-11
+    var lastYearTime = new Date('2024-03-11');
+
+    // 计算时间差
+    var timeDifference = currentDate.getTime() - lastYearTime.getTime();
+
+    // 转换为天数
+    var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    // 显示站点运行时间
+    document.getElementById('blogRunningTime').innerText = '博客你好的已萌萌哒运行：' + <span color="#afb42b">daysDifference</span> + ' 天';
+</script>
 
 </html>
