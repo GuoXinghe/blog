@@ -7,18 +7,23 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="郭星河的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="郭星河">
-<meta property="og:url" content="http://guoxinghe.github.io/archives/index.html">
+<meta name="description" content="这是本篇文章的描述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pattern与Matcher正则表达式组合使用的骚操作">
+<meta property="og:url" content="http://guoxinghe.github.io/2024/04/09/Pattern%E4%B8%8EMatcher%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="郭星河">
-<meta property="og:description" content="郭星河的个人博客">
+<meta property="og:description" content="这是本篇文章的描述">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-04-09T07:36:32.000Z">
+<meta property="article:modified_time" content="2024-04-09T07:42:49.308Z">
 <meta property="article:author" content="Guo Xinghe">
+<meta property="article:tag" content="小小的标签">
 <meta name="twitter:card" content="summary">
 
+    <meta name="keywords" content="日常BUG,工作日志">
 
-<title >郭星河</title>
+
+<title >Pattern与Matcher正则表达式组合使用的骚操作</title>
 
 <!-- Favicon -->
 
@@ -57,7 +62,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"guoxinghe.github.io","author":"Guo Xinghe","root":"/","typed_text":["Java Developer"],"theme_version":"2.1.0-beta.2","theme":{"switch":false,"default":"style-dark"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"prismjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"},"notice_outdate":{"enable":true,"style":"flat","limit_day":365,"position":"top"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":false,"postUpdate":"2024-04-09 15:42:59"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-04-09 15:42:49"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.0-beta.2" id="trm-switch-style">
@@ -157,7 +162,7 @@
                 
             </li>
             
-            <li class="menu-item-has-children current-menu-item">
+            <li class="menu-item-has-children ">
                 <a data-no-swup href="/archives/" target="">
                     archives
                 </a>
@@ -179,7 +184,8 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner">
     
@@ -200,10 +206,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            The article archive
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            云间连下榻，<br>天上接行杯。
+                            Pattern与Matcher正则表达式组合使用的骚操作
                         </h1>
 
                         
@@ -213,7 +219,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        archives
+                                        2024
                                     </span>
                                 </li>
                             </ul>
@@ -333,203 +339,126 @@
             
             <div id="page-content" class="col-lg-8">
                 <div class="trm-content" id="trm-content">
-                    <div class="row">
-    <div class="col-lg-12">
-        <div class="trm-card">
-            <div style="padding: 0 20px;">
-                
-                    <ul class="row trm-list" style="margin-bottom: 0px;"><li class="col-lg-4 trm-list-item" style="margin: 6px 0;"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">（6）</span></li></ul>
-                
-            </div>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            04/09
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            15:36
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Guo Xinghe
         </div>
     </div>
 </div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="Pattern的使用"><a href="#Pattern的使用" class="headerlink" title="Pattern的使用"></a>Pattern的使用</h3><p>在Java中，java.util.regex.Pattern 类用于表示正则表达式的编译表示。正则表达式是一种强大的模式匹配工具，它可以用于搜索、替换和解析字符串。以下是一些常见的正则表达式匹配规则：<br>普通字符：<br>大多数字符都是普通字符，它们匹配自身。例如，正则表达式 abc 将匹配字符串 “abc”。<br>字符类：<br>用方括号 [] 表示，可以匹配其中的任何一个字符。例如，[abc] 可以匹配 “a”、”b” 或 “c” 中的任意一个字符。<br>预定义字符类：<br>包括 \d（匹配任意数字）、\w（匹配任意字母、数字或下划线）、\s（匹配任意空白字符）等。<br>数量词：<br>用于指定匹配次数，例如 *（零次或多次）、+（一次或多次）、?（零次或一次）、{n}（恰好 n 次）、{n,}（至少 n 次）等。<br>边界匹配：<br>^ 表示匹配字符串的开头，$ 表示匹配字符串的结尾。<br>分组：<br>使用小括号 () 可以将多个项组合在一起，形成一个子表达式。<br>转义字符：<br>使用反斜杠 \ 可以转义特殊字符，使其成为普通字符。例如，. 可以匹配实际的句号字符。<br>或操作：<br>使用竖线 | 可以表示或操作，例如 a|b 可以匹配 “a” 或 “b”。<br>这些只是正则表达式的一些基本规则，正则表达式还有许多其他高级特性和语法。在使用正则表达式时，您可以根据具体的需求来组合这些规则，以实现复杂的模式匹配</p>
+<h3 id="Matcher"><a href="#Matcher" class="headerlink" title="Matcher"></a>Matcher</h3><p>在 Java 的 Matcher 类中，find 和 group 方法是用于在字符串中查找匹配的子序列的重要方法。</p>
+<h4 id="find-方法"><a href="#find-方法" class="headerlink" title="find 方法"></a>find 方法</h4><p>find 方法尝试在输入的字符串中查找下一个匹配的子序列。<br>如果找到了匹配的子序列，则返回 true，否则返回 false。<br>每次调用 find 方法，都会从上次匹配的位置开始继续查找下一个匹配的子序列。<br>以下是一个简单的示例，演示如何使用 find 方法查找匹配的子序列：</p>
+<p>String text &#x3D; “The cat and the hat”;<br>String patternString &#x3D; “cat”;<br>Pattern pattern &#x3D; Pattern.compile(patternString);<br>Matcher matcher &#x3D; pattern.matcher(text);</p>
+<p>while (matcher.find()) {<br>    System.out.println(“Found the word &quot;“ + matcher.group() + “&quot; starting at index “ + matcher.start() + “ and ending at index “ + matcher.end());<br>}</p>
+<h4 id="group-方法"><a href="#group-方法" class="headerlink" title="group 方法"></a>group 方法</h4><p>group 方法用于返回当前匹配的子序列。<br>如果正则表达式中有多个括号表达式，group 方法还可以用于返回每个括号表达式匹配的子序列。<br>以下是一个简单的示例，演示如何使用 group 方法获取匹配的子序列：</p>
+<p>String text &#x3D; “John Smith’s birthday is 01-02-1990”;<br>String patternString &#x3D; “(\d{2})-(\d{2})-(\d{4})”;<br>Pattern pattern &#x3D; Pattern.compile(patternString);<br>Matcher matcher &#x3D; pattern.matcher(text);</p>
+<p>if (matcher.find()) {<br>    System.out.println(“Full match: “ + matcher.group(0));<br>    System.out.println(“Day: “ + matcher.group(1));<br>    System.out.println(“Month: “ + matcher.group(2));<br>    System.out.println(“Year: “ + matcher.group(3));<br>}<br>在这个示例中，我们使用了一个带有括号表达式的正则表达式，然后通过 group 方法获取了每个括号表达式匹配的子序列。</p>
+<p>希望这些示例能够帮助您更好地理解 find 和 group 方法在 Java 中的使用。</p>
+<h3 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h3><p>以下是一个简单的示例，演示如何在 Java 中使用 Pattern 类和 matches 方法：</p>
+<p>  import java.util.regex.Pattern;<br>import java.util.regex.Matcher;</p>
+<p>public class RegexMatches {<br>    public static void main(String[] args) {<br>        String text &#x3D; “Hello, this is a sample text.”;<br>        String pattern &#x3D; “.<em>sample.</em>“;</p>
+<pre><code>    // 使用 Pattern 类编译正则表达式
+    Pattern p = Pattern.compile(pattern);
 
-<!-- history -->
+    // 使用 matches 方法进行匹配
+    boolean isMatch = p.matcher(text).matches();
 
-<div class="row">
+    System.out.println(&quot;Text matches the pattern? &quot; + isMatch);
+&#125;
+</code></pre>
+<p>}</p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">我秦始皇，打钱！</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='https://cdn.jsdelivr.net/gh/GuoXinghe/PicGo@blog/zfb.png' target='_blank' >
+                       <img src="https://cdn.jsdelivr.net/gh/GuoXinghe/PicGo@blog/zfb.png" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='https://cdn.jsdelivr.net/gh/GuoXinghe/PicGo@blog/wx.png' target='_blank' >
+                       <img src="https://cdn.jsdelivr.net/gh/GuoXinghe/PicGo@blog/wx.png" alt="微信" loading="lazy">
+                    </a>
+                    <p>微信</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div id="post-next-prev" class="row">
     <div class="col-lg-12">
         <!-- title -->
         <h5 class="trm-title-with-divider">
-            
-                所有归档
-            
-            <span data-number="01"></span>
+            其他文章
+            <span data-number="02"></span>
         </h5>
     </div>
-    <div class="col-lg-12">
-        <!-- timeline -->
-        <div class="trm-timeline">
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/04/01/%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3/" class="trm-cover-frame trm-anima-link">
             
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/04/09/Pattern%E4%B8%8EMatcher%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C/" class="trm-anima-link">
-                                        Pattern与Matcher正则表达式组合使用的骚操作
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">04/09</li>
-                                        <li class="trm-accent-color">15:36</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E4%BA%BA%E7%94%9F/">
+                    人生
+                </a>
             </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/04/01/%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3/" class="trm-anima-link">
-                                        快速解决
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">04/01</li>
-                                        <li class="trm-accent-color">15:35</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/26/%E5%90%84%E9%98%B6%E6%AE%B5%E8%A1%A8%E5%8D%95%E9%A3%9E%E4%B9%A6%E5%91%8A%E7%9F%A5%E8%A7%92%E8%89%B2%E8%AF%A6%E6%83%85/" class="trm-anima-link">
-                                        各阶段表单飞书告知角色详情
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/26</li>
-                                        <li class="trm-accent-color">09:58</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/19/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="trm-anima-link">
-                                        Java基础学习
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/19</li>
-                                        <li class="trm-accent-color">16:55</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/13/%E5%B7%A5%E4%BD%9C%E4%BB%A3%E5%8A%9E-%E5%B7%B2%E5%8A%9E/" class="trm-anima-link">
-                                        工作日志
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/13</li>
-                                        <li class="trm-accent-color">08:57</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/2024/03/12/MarkDown%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" class="trm-anima-link">
-                                        MarkDown语法基础
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">03/12</li>
-                                        <li class="trm-accent-color">14:09</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
+            <h5>
+                <a href="/2024/04/01/%E5%BF%AB%E9%80%9F%E8%A7%A3%E5%86%B3/" class="trm-anima-link">
+                    快速解决
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/04/01</li>
+                <li>15:35</li>
+                
+                
+            </ul>
         </div>
-        <!-- timeline end -->
     </div>
 </div>
+    
+</div>
 
-<!-- history end -->
-
-
-    <div class="trm-pagination">
-        <span class="page-number current">1</span>
-    </div>
-
-
+    
 
 
 
@@ -584,6 +513,10 @@
 
             
 
+    <div id="post-toc" class="post-toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#Pattern的使用"  data-scroll-to="#Pattern的使用"><span class="toc-number">1.1.</span> <span class="toc-text">Pattern的使用</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#Matcher"  data-scroll-to="#Matcher"><span class="toc-number">1.2.</span> <span class="toc-text">Matcher</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#简单示例"  data-scroll-to="#简单示例"><span class="toc-number">1.3.</span> <span class="toc-text">简单示例</span></a></li></ol></li></ol>
+    </div>
+
             
 <div class="trm-fixed-container">
     
@@ -591,6 +524,10 @@
             <i class="iconfont fas fa-th-list"></i>
         </div>
     
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
     
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
@@ -625,6 +562,10 @@
     
 
     <!-- 评论插件 -->
+    
+        
+
+        
     
 
 
